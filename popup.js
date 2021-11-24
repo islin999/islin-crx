@@ -47,19 +47,19 @@ $('#submitForm').click(function (val) {
         console.log(cov,'cov')
         console.log(formData)
         const {dsn,commitSha,projectName,projectId} = formData
-        $.ajax({
-            url:dsn,
-            headers : {
+        fetch(dsn,{
+            method:'POST',
+            headers:{
                 'content-type': 'application/json'
-            }, //请求成功的回调函数
-            type:'post',
-            dataType: "json",
-            data:JSON.stringify({
+            },
+            body:JSON.stringify({
+                "projectId": projectId,
                 "projectName": projectName,
-                "projectId":projectId,
                 "commitSha": commitSha,
-                "coverage":cov
+                "coverage": cov
             })
+        }).then(res=>{
+            return res.json()
         }).then(res=>{
             $('#submitFormRes').html(JSON.stringify(res))
         }).catch(err=>{
