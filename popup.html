@@ -1,18 +1,44 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- import CSS -->
-    <link rel="stylesheet" href="./third-party/element-ui.css">
+    <link href="./third-party/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./popup.css">
 </head>
 <body>
 <div id="app">
 
+
+    <div class="margin">
+        <div class="mb-3">
+            <label for="projectName" class="form-label">项目名称</label>
+            <input id="projectName"  class="form-control" placeholder="">
+        </div>
+        <div class="mb-3">
+            <label for="projectId" class="form-label">项目ID</label>
+            <input id="projectId"  class="form-control" placeholder="">
+        </div>
+        <div class="mb-3">
+            <label for="commitSha" class="form-label">Commit Sha</label>
+            <input id="commitSha"  class="form-control" placeholder="">
+        </div>
+        <div class="mb-3">
+            <label for="dsn" class="form-label">dsn</label>
+            <input id="dsn"  class="form-control" placeholder="">
+        </div>
+        <div class="mb-3">
+            <span>上报结果:</span>
+            <span id="submitFormRes"></span>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary mb-3" id="submitForm">上报</button>
+        </div>
+    </div>
+
 </div>
 </body>
-<!-- import Vue before Element -->
-<script src="./third-party/vue2.js"></script>
-<!-- import JavaScript -->
-<script src="./third-party/element-ui.js"></script>
+<script src="./third-party/jquery-3.6.0.min.js"></script>
+<script src="./third-party/bootstrap.min.js"></script>
+
 <script src="./popup.js"></script>
 </html>
