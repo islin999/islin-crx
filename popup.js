@@ -21,10 +21,10 @@ if (localStorage.getItem('formData')) {
 
 } else {
     localStorage.setItem('formData', JSON.stringify({
-        projectName: 1,
-        projectId: 2,
-        dsn: 3,
-        commitSha: 4
+        projectName: 'projectName',
+        projectId: 999,
+        dsn: 'http://xxx.xxx/api/v1/coverage/client',
+        commitSha: 'commitSha'
     }))
 }
 let formData = JSON.parse(localStorage.getItem('formData'))
