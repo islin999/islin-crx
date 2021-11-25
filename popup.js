@@ -24,13 +24,22 @@ if (localStorage.getItem('formData')) {
         projectName: 'projectName',
         projectId: 999,
         dsn: 'http://xxx.xxx/api/v1/coverage/client',
-        commitSha: 'commitSha'
+        commitSha: 'commitSha',
+        reporter: 'reporter'
     }))
 }
 let formData = JSON.parse(localStorage.getItem('formData'))
 console.log(formData, 'formData')
 
-for (const formDataKey in formData) {
+const formDataEnum = {
+    projectName: '',
+    projectId: 0,
+    dsn: '',
+    commitSha: '',
+    reporter: ''
+}
+
+for (const formDataKey in formDataEnum) {
     $(`#${formDataKey}`).val(formData[formDataKey])
 
 
@@ -46,11 +55,12 @@ $('#submitForm').click(function (val) {
     getPageCov().then(cov => {
         console.log(cov,'cov')
         console.log(formData)
-        const {dsn,commitSha,projectName,projectId} = formData
+        const {dsn,commitSha,reporter,projectName,projectId} = formData
         fetch(dsn,{
             method:'POST',
             headers:{
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                token: reporter
             },
             body:JSON.stringify({
                 "projectId": projectId,
