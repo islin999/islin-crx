@@ -1,7 +1,7 @@
 {
   "name": "islin-crx",
-  "description": "A code coverage upload plug-in.",
-  "version": "0.0.5",
+  "description": "代码覆盖率上传插件",
+  "version": "0.0.6",
   "manifest_version": 3,
   "permissions": [
     "tabs"
